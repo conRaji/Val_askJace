@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url("heart-bg.jpg");
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+/*  Envelope */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#envelope {
+    width: 200px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Cat Letter Window */
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window {
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    padding-top: 150px;
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 { font-size: 30px; margin: 0; }
+p { font-size: 40px; margin: 10px 0; }
+
+.cat {
+    width: 250px;
+    margin: 10px;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .cat { width: 180px; }
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.yes-btn, .no-btn {
+    width: 120px;
+    cursor: pointer;
+}
+
+.yes-btn { z-index: 2; transition: transform 0.3s ease; }
+.no-btn { z-index: 1; position: relative; transition: transform 0.15s ease; }
+
+.final-text {
+    font-size: 22px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 240, 248, 0.8);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+#heart-trigger { display: inline-block; transition: transform 0.2s ease; }
+#heart-trigger:hover { transform: scale(1.3); }
+
+/* The Scroll Pop-up */
+#love-container {
+    display: none; /* Changed in  JS  file*/
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.love-window {
+    background: url("scroll.jpg") no-repeat center center;
+    background-size: contain; 
+    width: 90vw;
+    max-width: 500px;
+    min-height: 600px; 
+    padding: 120px 60px; /* Keeps text inside scroll borders */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#typewriter-text {
+    color: #5a4a4a;
+    font-size: 22px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+#close-letter:hover { transform: scale(1.2); }
